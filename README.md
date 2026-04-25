@@ -39,7 +39,7 @@ Output (Restored)
 Digunakan untuk menghilangkan salt-and-pepper noise. Cara kerjanya: setiap piksel diganti dengan nilai median dari piksel-piksel tetangganya dalam window 3x3. Median dipilih karena tidak terpengaruh nilai ekstrem (piksel hitam/putih acak), berbeda dengan mean filter yang justru akan menyebarkan noise tersebut.
 
 **Step 2 Gaussian Filter**  
-Setelah S&P noise hilang, masih ada Gaussian noise yang tersebar. Gaussian filter menghaluskan sisa noise ini dengan konvolusi menggunakan kernel berbobot Gaussian — piksel yang lebih dekat ke pusat kernel diberi bobot lebih besar. Hasilnya lebih natural dibanding rata-rata biasa.
+Setelah S&P noise hilang, masih ada Gaussian noise yang tersebar. Gaussian filter menghaluskan sisa noise ini dengan konvolusi menggunakan kernel berbobot Gaussian piksel yang lebih dekat ke pusat kernel diberi bobot lebih besar. Hasilnya lebih natural dibanding rata-rata biasa.
 
 **Step 3 Histogram Equalization**  
 Dilakukan setelah denoising selesai agar noise tidak ikut diperkuat. HE menyebarkan distribusi intensitas yang awalnya sempit (menumpuk di tengah) ke seluruh range 0-255 menggunakan pemetaan berbasis CDF. Hasilnya kontras meningkat signifikan.
