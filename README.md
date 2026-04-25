@@ -1,4 +1,4 @@
-# Mini Project 1 — Image Restoration
+# Mini Project 1  Image Restoration
 
 **Mata Kuliah:** Pengolahan Citra dan Video  
 **Nama:** Fito Dwi Ardiansah  
@@ -35,16 +35,16 @@ Output (Restored)
 
 ### Penjelasan Tiap Langkah
 
-**Step 1 — Median Filter**  
+**Step 1 Median Filter**  
 Digunakan untuk menghilangkan salt-and-pepper noise. Cara kerjanya: setiap piksel diganti dengan nilai median dari piksel-piksel tetangganya dalam window 3x3. Median dipilih karena tidak terpengaruh nilai ekstrem (piksel hitam/putih acak), berbeda dengan mean filter yang justru akan menyebarkan noise tersebut.
 
-**Step 2 — Gaussian Filter**  
+**Step 2 Gaussian Filter**  
 Setelah S&P noise hilang, masih ada Gaussian noise yang tersebar. Gaussian filter menghaluskan sisa noise ini dengan konvolusi menggunakan kernel berbobot Gaussian — piksel yang lebih dekat ke pusat kernel diberi bobot lebih besar. Hasilnya lebih natural dibanding rata-rata biasa.
 
-**Step 3 — Histogram Equalization**  
+**Step 3 Histogram Equalization**  
 Dilakukan setelah denoising selesai agar noise tidak ikut diperkuat. HE menyebarkan distribusi intensitas yang awalnya sempit (menumpuk di tengah) ke seluruh range 0-255 menggunakan pemetaan berbasis CDF. Hasilnya kontras meningkat signifikan.
 
-**Step 4 — Unsharp Masking**  
+**Step 4 Unsharp Masking**  
 Langkah terakhir untuk mempertajam detail dan tepi yang terlihat lunak akibat proses filtering sebelumnya. Cara kerjanya: gambar di-blur dulu, lalu selisih antara gambar asli dan versi blur-nya (yang berisi detail) ditambahkan kembali ke gambar asli dengan faktor pengali 1.5.
 
 ### Alasan Urutan
@@ -76,13 +76,14 @@ Lihat file `output/pipeline_visualization.png` untuk melihat perubahan citra dan
 
 **Yang berhasil:**
 - Salt-and-pepper noise hilang hampir sepenuhnya setelah median filter
-- Kontras meningkat drastis setelah histogram equalization — range intensitas melebar dari sekitar 140 menjadi 255
+- Kontras meningkat drastis setelah histogram equalization range intensitas melebar dari sekitar 140 menjadi 255
 - Detail dan tepi gambar lebih tajam setelah unsharp masking
 
 **Keterbatasan:**
-- Gaussian filter menyebabkan sedikit blur tambahan — bilateral filter bisa menjadi alternatif yang lebih baik karena mempertahankan tepi
+- Gaussian filter menyebabkan sedikit blur tambahan bilateral filter bisa menjadi alternatif yang lebih baik karena mempertahankan tepi
 - Histogram equalization global kadang membuat beberapa area terlihat terlalu terang; CLAHE (adaptive) bisa memberikan hasil yang lebih merata
-- Parameter amount pada unsharp masking perlu dikalibrasi — nilai terlalu tinggi bisa menimbulkan halo artifact di sekitar tepi
+- Parameter amount pada unsharp masking perlu dikalibrasi
+- nilai terlalu tinggi bisa menimbulkan halo artifact di sekitar tepi
 
 ---
 
