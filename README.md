@@ -29,7 +29,7 @@ Merestorasi citra Lena yang rusak akibat low contrast, Gaussian noise, salt-and-
 | 3 | Histogram Equalization | Perbaiki kontras rendah |
 | 4 | Unsharp Masking (amount=0.7) | Pertajam detail yang kabur |
 
-Urutan ini penting — denoising dulu sebelum HE dan sharpening, supaya noise tidak ikut diperkuat.
+Urutan ini penting denoising dulu sebelum HE dan sharpening, supaya noise tidak ikut diperkuat.
 
 ---
 
